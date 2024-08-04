@@ -7,16 +7,15 @@ const listingSchema=new Schema({
         required:true,
     },
     description:String,
-    image:{
-        filename:{
-            type:String,
-            default:
-                "https://drive.google.com/file/d/192VG9nP7ehwCbsWGuYakOxskFpFB4qkA/view?usp=drivesdk",
-            set:(v)=>
-                 v ===""
-                 ?"https://drive.google.com/file/d/192VG9nP7ehwCbsWGuYakOxskFpFB4qkA/view?usp=drivesdk"
-                :v,
-            }},
+    image: {
+        type: Object,
+        default: {
+          url: "https://drive.google.com/file/d/192VG9nP7ehwCbsWGuYakOxskFpFB4qkA/view?usp=drivesdk"
+        },
+        set: (v) => (v === "" ? {
+          url: "https://drive.google.com/file/d/192VG9nP7ehwCbsWGuYakOxskFpFB4qkA/view?usp=drivesdk"
+        } : v)
+      },
     price:Number,
     location:String,
     country:String,

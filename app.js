@@ -53,7 +53,8 @@ async function main() {
   //first route->index route
   app.get("/listings", async (req,res)=>{
    const allListings= await Listing.find({});
-   res.render("listings/index",{allListings});
+   res.render("listings/index.ejs",{allListings});
+   
   });
 
    //new route
@@ -84,7 +85,7 @@ async function main() {
         res.render("listings/edit.ejs",{listing});
       });
 
-       //update route
+  //update route
   app.put("/listings/:id",async (req,res)=>{
     let {id}=req.params;
     await Listing.findByIdAndUpdate(id,{...req.body.listing});
