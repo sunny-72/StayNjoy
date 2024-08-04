@@ -15,15 +15,25 @@ const Listing = require("./models/listing.js");
 const mongoose = require('mongoose');
 let mongoURL="mongodb://127.0.0.1:27017/stayNjoy";
 
+//requiring ejs-mate templating
+const ejsMate=require("ejs-mate");
+
 //setting view engine 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
+
+//using ejs-mate
+app.engine("ejs",ejsMate);
+
 
 //setting to understand url
 app.use(express.urlencoded({extended:true}));
 
 //method ovverride
 const methodOverride=require("method-override");
+
+//to use static file
+app.use(express.static(path.join(__dirname,"/public")));
 
 
 //handeling database connection
