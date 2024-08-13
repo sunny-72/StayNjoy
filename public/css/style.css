@@ -97,3 +97,16 @@ object-fit: cover !important;
     background-color:#fe424d !important ;
     border:none !important;
 }
+
+/* show page */
+
+.show-image{
+    height: 60vh;
+}
+.btns{
+    display: flex;
+}
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+}
